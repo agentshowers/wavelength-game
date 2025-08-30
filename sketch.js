@@ -16,9 +16,9 @@ let isNextGo = false;
 function preload() {
   pairsTable = loadTable("pairs.csv", "csv");
   coloursTable = loadTable("colours.csv", "csv");
-  token1 = loadImage('assets/token_1.png');
-  token2 = loadImage('assets/token_2.png');
-  guessingToken = loadImage('assets/guessing_token.png');
+  token1 = loadImage(TOKEN_1_DATA);
+  token2 = loadImage(TOKEN_2_DATA);
+  guessingToken = loadImage(GUESSING_TOKEN_DATA);
 }
 
 function setup() {

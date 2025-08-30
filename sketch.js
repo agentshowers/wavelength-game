@@ -4,8 +4,6 @@ let arcDiameter = sketchHeight * 0.8;
 let arcRadius = arcDiameter / 2;
 let xorigin = sketchWidth / 2;
 let yorigin = 0.5 * sketchHeight;
-let pairsTable;
-let coloursTable;
 let card;
 let device;
 let board;
@@ -14,8 +12,6 @@ let game, teamA, teamB;
 let isNextGo = false;
 
 function preload() {
-  pairsTable = loadTable("pairs.csv", "csv");
-  coloursTable = loadTable("colours.csv", "csv");
   token1 = loadImage(TOKEN_1_DATA);
   token2 = loadImage(TOKEN_2_DATA);
   guessingToken = loadImage(GUESSING_TOKEN_DATA);
@@ -39,7 +35,7 @@ function setup() {
 
   game = new WavelengthGame(device, teamA, teamB);
 
-  card = new Card(0, height * 0.3, height * 0.2, height * 0.2, pairsTable.getArray(), coloursTable.getArray());
+  card = new Card(0, height * 0.3, height * 0.2, height * 0.2, PAIRS_DATA, COLOURS_DATA);
   card.newScale();
 
   board = new Board(game, xorigin, yorigin + sketchHeight * 0.1, sketchWidth * 0.9, sketchHeight * 0.9);

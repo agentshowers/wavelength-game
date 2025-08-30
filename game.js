@@ -100,7 +100,7 @@ class Board {
       fill(3, 51, 82);
       noStroke();
     }
-    text("Left Brain", this.xorigin - this.width * 0.38, this.yorigin - this.height * 0.4);
+    text("The Ducks", this.xorigin - this.width * 0.38, this.yorigin - this.height * 0.4);
     
     if (this.game.turn === this.game.teamB) {
       strokeWeight(8);
@@ -110,7 +110,7 @@ class Board {
       fill(3, 51, 82);
       noStroke();
     }
-    text("Right Brain", this.xorigin + this.width * 0.38, this.yorigin - this.height * 0.4);
+    text("The Cats", this.xorigin + this.width * 0.38, this.yorigin - this.height * 0.4);
 
     textSize(this.height / 35);
 

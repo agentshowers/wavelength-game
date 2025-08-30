@@ -30,8 +30,8 @@ function setup() {
 
   device = new Device(xorigin, yorigin, arcRadius);
 
-  teamA = new Team('Left Brain');
-  teamB = new Team('Right Brain');
+  teamA = new Team('The Ducks');
+  teamB = new Team('The Cats');
 
   game = new WavelengthGame(device, teamA, teamB);
 

@@ -85,11 +85,21 @@ class Device {
   }
 
   updateTargetDisplay() {
-    const targetDiv = document.getElementById('target-position');
-    if (targetDiv) {
+    const qrDiv = document.getElementById('qr-code');
+    
+    if (qrDiv) {
       // Calculate percentage: 0.4 = 0%, 9.6 = 100%, 5 = 50%
       const percentage = ((this.targetPosition - 0.4) / (9.6 - 0.4)) * 100;
-      targetDiv.textContent = 'Target Position: ' + this.targetPosition.toFixed(2) + ' (' + percentage.toFixed(1) + '%)';
+      
+      // Clear previous QR code and generate new one
+      qrDiv.innerHTML = '';
+      new QRCode(qrDiv, {
+        text: percentage.toFixed(1) + '%',
+        width: 150,
+        height: 150,
+        colorDark: '#333',
+        colorLight: '#fff'
+      });
     }
   }
 

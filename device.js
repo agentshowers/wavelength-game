@@ -12,7 +12,7 @@ class Device {
 
     this.targetWidth = 0.4;
     this.targetPosition = random(this.targetWidth, 10 - this.targetWidth);
-    console.log('New Game - Target Position:', this.targetPosition.toFixed(2));
+    this.updateTargetDisplay();
 
     this.screenShown = true;
     this.peek = false;
@@ -75,12 +75,21 @@ class Device {
   wheelTurning() {
     if (round(this.currentWheelPosition, 1) == round(this.newWheelPosition, 1)) {
       this.targetPosition = random(this.targetWidth + 0.12, 10 - this.targetWidth - 0.12);
-      console.log('New Round - Target Position:', this.targetPosition.toFixed(2));
+      this.updateTargetDisplay();
       this.wheelAnimation = false;
       this.oldWheelPosition = this.currentWheelPosition;
     } else {
       this.currentWheelPosition += (this.newWheelPosition - this.oldWheelPosition) / 100;
       this.wheelAnimation = true;
+    }
+  }
+
+  updateTargetDisplay() {
+    const targetDiv = document.getElementById('target-position');
+    if (targetDiv) {
+      // Calculate percentage: 0.4 = 0%, 9.6 = 100%, 5 = 50%
+      const percentage = ((this.targetPosition - 0.4) / (9.6 - 0.4)) * 100;
+      targetDiv.textContent = 'Target Position: ' + this.targetPosition.toFixed(2) + ' (' + percentage.toFixed(1) + '%)';
     }
   }
 

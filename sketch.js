@@ -49,6 +49,12 @@ function draw() {
   card.render();
   game.render();
 
+  // Display target position under the main game
+  fill(100);
+  textAlign(CENTER);
+  textSize(16);
+  text('Target Position: ' + device.targetPosition.toFixed(2), sketchWidth / 2, sketchHeight - 20);
+
   mouseOver();
 }
 
